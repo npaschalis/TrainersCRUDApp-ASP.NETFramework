@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TrainersCRUDApp.Models.Trainer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<h2 class="text-center">Trainers list</h2>
+<br />
+
+<table class="table table-bordered table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Subject</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td width="20%" style="vertical-align: middle">
+                    @obj.FirstName
+                </td>
+                <td width="20%" style="vertical-align: middle">
+                    @obj.LastName
+                </td>
+                <td width="40%" style="vertical-align: middle">
+                    @obj.Subject
+                </td>
+                <td width="20%" style="vertical-align: middle">
+                    @Html.ActionLink("Edit", "Edit", new { id = obj.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = obj.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Create New Trainer", "Create", null, new { @class = "btn btn-primary" })
+
+
